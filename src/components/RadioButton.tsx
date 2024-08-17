@@ -59,7 +59,7 @@ const $outerCircle: ViewStyle = {
   height: 24,
   width: 24,
   borderRadius: 12,
-  borderWidth: 2,
+  borderWidth: 1,
   borderColor: '#070707c5',
   alignItems: 'center',
   justifyContent: 'center',
