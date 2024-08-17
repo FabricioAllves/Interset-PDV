@@ -2,10 +2,14 @@
 import React from "react";
 import { TextInput, Text, View, TextStyle, ViewStyle } from "react-native";
 
-export function Input() {
+type PropsInput = {
+  description: string,
+}
+
+export function Input({ description }: PropsInput) {
   return (
     <View style={$container}>
-      <Text style={$label}>Data</Text>
+      <Text style={$label}>{description}</Text>
       <TextInput style={$inputStyle} />
     </View>
   )
@@ -20,7 +24,7 @@ const $container: ViewStyle = {
 
 const $label: TextStyle = {
   fontSize: 18,
-  color: '#070707c5'
+  color: '#070707c5',
 };
 
 const $inputStyle: TextStyle = {
@@ -29,5 +33,5 @@ const $inputStyle: TextStyle = {
   borderWidth: 0.5,
   height: 50,
   padding: 10,
-  marginTop: 10
+  marginTop: 10,
 }

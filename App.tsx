@@ -1,15 +1,12 @@
-
 import React from 'react'
 
-import { SafeAreaView, StatusBar } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import { OrderService } from 'src/screens/OrderService';
 
 export default function App() {
-
-
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-    <OrderService />
-  </SafeAreaView>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#00a6ff' }}>
+      <OrderService />
+    </SafeAreaView>
   );
 }

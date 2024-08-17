@@ -3,7 +3,11 @@ import { ImageStyle, Text, TextStyle, View, ViewStyle } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import AntDesign from '@expo/vector-icons/AntDesign';
 
-export function InputSelect() {
+type PropsSelect = {
+  description: string
+}
+
+export function InputSelect({description}: PropsSelect) {
   const data = [
     { label: 'Item 1', value: '1' },
     { label: 'Item 2', value: '2' },
@@ -21,7 +25,7 @@ export function InputSelect() {
   return(
     <View style={$container}>
        <Text style={$label}>
-         Contrato
+         {description}
         </Text>
       <Dropdown
         style={[$dropdown, isFocus && $dropdownFocus]}
@@ -37,6 +41,7 @@ export function InputSelect() {
         placeholder={!isFocus ? 'Select item' : '...'}
         searchPlaceholder="Search..."
         value={value}
+        mode='modal'
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
         onChange={item => {
@@ -60,7 +65,7 @@ export function InputSelect() {
 //.  Styles
 const $container: ViewStyle = {
   backgroundColor: 'white',
-  paddingVertical: 16,
+  flex: 1
 };
 
 const $dropdown: ViewStyle = {
