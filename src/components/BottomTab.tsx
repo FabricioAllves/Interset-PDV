@@ -1,13 +1,16 @@
 import { View, ViewStyle, Text, TextStyle, TouchableOpacity } from "react-native";
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { useNavigation } from "@react-navigation/native";
+import { AppStackNavigatorRoutesProps } from "@routes/app.stack.routes";
 
 export function BottomTab() {
   const { goBack } = useNavigation();
 
+  const navigation = useNavigation<AppStackNavigatorRoutesProps>();
+
   return (
     <View style={$container}>
-      <TouchableOpacity style={$button} onPress={goBack}>
+      <TouchableOpacity style={$button} onPress={() => navigation.goBack()}>
         <AntDesign
           style={$icon}
           color={'white'}
@@ -17,7 +20,7 @@ export function BottomTab() {
          <Text style={$label}>Início</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={$button}>
+      <TouchableOpacity style={$button} onPress={() => navigation.navigate('Checkout')}>
       <Text style={$label}>Checkout</Text>
         <AntDesign
           style={$icon}

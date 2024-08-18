@@ -1,23 +1,40 @@
 import { create } from 'zustand';
 
+type SelectOption = {
+  value: number;
+  label: string;
+};
+
 type FormDataState = {
-  city: number;
-  category: number;
-  contract: number;
-  typeMedidor: number;
-  typeService: number;
+  city: SelectOption;
+  category: SelectOption;
+  contract: SelectOption;
+  typeMedidor: SelectOption;
+  typeService: SelectOption;
   document: string;
   zona: string;
   setFormData: (data: Partial<FormDataState>) => void;
+  clearFormData: () => void;
 };
 
 export const useFormStore = create<FormDataState>((set) => ({
-  city: 0,
-  category: 0,
-  contract: 0,
-  typeMedidor: 0,
-  typeService: 0,
+  city: { value: 0, label: '' },
+  category: { value: 0, label: '' },
+  contract: { value: 0, label: '' },
+  typeMedidor: { value: 0, label: '' },
+  typeService: { value: 0, label: '' },
   document: '',
   zona: '',
+  
   setFormData: (data) => set((state) => ({ ...state, ...data })),
+
+  clearFormData: () => set(() => ({
+    city: { value: 0, label: '' },
+    category: { value: 0, label: '' },
+    contract: { value: 0, label: '' },
+    typeMedidor: { value: 0, label: '' },
+    typeService: { value: 0, label: '' },
+    document: '',
+    zona: '',
+  })),
 }));

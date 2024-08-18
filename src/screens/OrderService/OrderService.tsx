@@ -21,29 +21,9 @@ export function OrderService() {
     <View style={$container}>
       <ScrollView style={$Scroll} showsVerticalScrollIndicator={false}>
         <View style={$scrolllv}>
-          <View style={$containerRow}>
-            <Input description="Data" />
-            <Input description="Hora" />
-          </View>
+          <Text style={$titleHeader}>Dados do Pedido</Text>
 
-          <View style={$containerRow}>
-            <Text style={$label}>Zona: </Text>
-            <Controller
-              control={control}
-              name="zona"
-              render={({ field }) => (
-                <RadioGroup
-                  options={[
-                    { label: 'Rural', value: 'Rural' },
-                    { label: 'Urbana', value: 'Urbana' },
-                  ]}
-                  selectedValue={field.value}
-                  onSelect={field.onChange}
-                  errorMessage={errors.zona?.message}
-                />
-              )}
-            />
-          </View>
+
 
           <View style={$wrapperSelect}>
             <Controller
@@ -80,6 +60,25 @@ export function OrderService() {
               )}
             />
 
+            <View style={$containerRow}>
+              <Text style={$label}>Zona: </Text>
+              <Controller
+                control={control}
+                name="zona"
+                render={({ field }) => (
+                  <RadioGroup
+                    options={[
+                      { label: 'Rural', value: 'Rural' },
+                      { label: 'Urbana', value: 'Urbana' },
+                    ]}
+                    selectedValue={field.value}
+                    onSelect={field.onChange}
+                    errorMessage={errors.zona?.message}
+                  />
+                )}
+              />
+            </View>
+
             <Controller
               control={control}
               name="typeService"
@@ -96,17 +95,17 @@ export function OrderService() {
                 />
               )}
             />
-           
+
             <Controller
               control={control}
               name="document"
               render={({ field }) => (
                 <Input
-                description="Numero Documento"
-                value={field.value}
-                onChangeText={field.onChange}
-                onBlur={field.onBlur}
-                errorMessage={errors.document?.message}
+                  description="Numero Documento"
+                  value={field.value}
+                  onChangeText={field.onChange}
+                  onBlur={field.onBlur}
+                  errorMessage={errors.document?.message}
                 />
               )}
             />
@@ -165,6 +164,14 @@ const $Scroll: ViewStyle = {
   flex: 1
 }
 
+const $titleHeader: TextStyle = {
+  fontSize: 26,
+  fontWeight: 'bold',
+  textAlign: 'center',
+  marginBottom: 30
+};
+
+
 const $scrolllv: ViewStyle = {
   marginBottom: 15,
   flex: 1
@@ -177,7 +184,7 @@ const $label: TextStyle = {
 const $containerRow: ViewStyle = {
   flexDirection: 'row',
   gap: 10,
-  marginBottom: 26,
+ marginTop: 10
 }
 
 const $wrapperSelect: ViewStyle = {

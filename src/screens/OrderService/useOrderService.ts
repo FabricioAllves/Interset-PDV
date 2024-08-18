@@ -9,7 +9,6 @@ import { useFormStore } from "src/store/useFormStore";
 import { useNavigation } from "@react-navigation/native";
 import { AppStackNavigatorRoutesProps } from "@routes/app.stack.routes";
 
-
 export function useOrderService(){
   const [cityData, setCityData] = useState<cityResponse[]>([]);
   const [categoryData, setCategoryData] = useState<CategoryResponse[]>([]);
@@ -71,7 +70,15 @@ export function useOrderService(){
   },[])
 
   const onSubmit = async (data: FormData) => {
-    setFormData(data);
+    setFormData({
+      city: { value: data.city, label: cityData.find(c => c.codigo === data.city)?.nome || '' },
+      category: { value: data.category, label: categoryData.find(c => c.codigo === data.category)?.nome || '' },
+      contract: { value: data.contract, label: contractData.find(c => c.codigo === data.contract)?.nome || '' },
+      typeMedidor: { value: data.typeMedidor, label: typeMedidorData.find(c => c.codigo === data.typeMedidor)?.nome || '' },
+      typeService: { value: data.typeService, label: typeServiceData.find(c => c.codigo === data.typeService)?.nome || '' },
+      document: data.document,
+      zona: data.zona,
+    });
     navigate('ListProduct')
   }
 

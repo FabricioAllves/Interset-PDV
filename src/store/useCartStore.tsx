@@ -7,6 +7,7 @@ interface CartState {
   removeProduct: (id: number) => void;
   incrementQuantity: (id: number) => void;
   decrementQuantity: (id: number) => void;
+  clearCart: () => void; 
 }
 
 const useCartStore = create<CartState>((set) => ({
@@ -63,6 +64,11 @@ const useCartStore = create<CartState>((set) => ({
             : product
         )
         .filter((product) => product.quantity > 0), // Remove o produto se a quantidade for 0
+    })),
+
+  clearCart: () =>
+    set(() => ({
+      products: [],
     })),
 }));
 

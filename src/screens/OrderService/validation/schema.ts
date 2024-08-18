@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 export const FormSchema = z.object({
-  city: z.number().min(1, 'Cidade é obrigatória'),
+  city: z.number().min(1, 'Municipio é obrigatória'),
   category: z.number().min(1, 'Categoria é obrigatória'),
   contract: z.number().min(1, 'Contrato é obrigatório'),
   typeMedidor: z.number().min(1, 'Tipo de Medidor é obrigatório'),
