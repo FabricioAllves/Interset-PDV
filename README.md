@@ -20,7 +20,7 @@ Para esse projeto optei por utilizar uma arquitetura MVVM, pois oferece uma mane
 Clone o repositório para sua maquina, execute o comando:
 
 ```bash
-git clone https://github.com/FabricioAllves/HomeHub.git
+git clone https://github.com/FabricioAllves/Interset-PDV.git
 ```
 
 Para instalar as dependências do projeto, execute o comando:
