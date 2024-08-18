@@ -2,6 +2,7 @@ import { CardProduct } from "@components";
 import { FlatList, Text, TextStyle, View, ViewStyle } from "react-native";
 import useCartStore from "src/store/useCartStore";
 import { useListProduct } from "./useListProduct";
+import { BottomTab } from "src/components/BottomTab";
 
 export function ListProducts() {
   const { addProduct } = useCartStore()
@@ -14,12 +15,14 @@ export function ListProducts() {
       </View>
 
       <FlatList
+      showsVerticalScrollIndicator={false}
         data={productsData}
         renderItem={({ item }) => (
           <CardProduct dataItem={item} onPress={() => addProduct(item)} />
         )}
         style={$container}
       />
+      <BottomTab/>
     </>
   )
 }

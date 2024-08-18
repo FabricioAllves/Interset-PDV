@@ -1,6 +1,5 @@
-import { Api_product } from "src/api/api";
+import { Api_product } from "src/api/apiConfig";
 import { Product } from "src/types/product";
-
 
 export const productApi = {
   async getAllProduct() {

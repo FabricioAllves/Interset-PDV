@@ -6,6 +6,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import {FormData, FormSchema} from './validation/schema';
 import { cities, mockCategories, mockContracts, mockMeterTypes, mockServiceTypes } from "mock";
 import { useFormStore } from "src/store/useFormStore";
+import { useNavigation } from "@react-navigation/native";
+import { AppStackNavigatorRoutesProps } from "@routes/app.stack.routes";
+
 
 export function useOrderService(){
   const [cityData, setCityData] = useState<cityResponse[]>([]);
@@ -15,6 +18,8 @@ export function useOrderService(){
   const [typeServiceData, setTypeServiceData] = useState<ServiceTypeResponse[]>([]);
 
   const {setFormData} = useFormStore();
+
+  const { navigate } = useNavigation<AppStackNavigatorRoutesProps>();
 
   const { register, handleSubmit, control,  formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(FormSchema),
@@ -67,6 +72,7 @@ export function useOrderService(){
 
   const onSubmit = async (data: FormData) => {
     setFormData(data);
+    navigate('ListProduct')
   }
 
   return {

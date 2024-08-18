@@ -1,5 +1,5 @@
 import { CategoryResponse, cityResponse, ContractResponse, MeterTypeResponse, ServiceTypeResponse } from "src/types";
-import { Api_orderService } from "../../api/api";
+import { Api_orderService } from "../../api/apiConfig";
 
 
 export const orderServiceApi = {

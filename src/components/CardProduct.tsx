@@ -107,7 +107,7 @@ const $buyIncrement: ViewStyle = {
   alignItems: 'center',
   flexDirection: 'row',
   borderWidth: 1,
-  borderColor: '#2e10f4',
+  borderColor: '#037ee9',
 };
 
 const $quantity: ViewStyle = {
@@ -120,7 +120,7 @@ const $quantity: ViewStyle = {
 const $addCart: ViewStyle = {
   flex: 1,
   height: 42,
-  backgroundColor: '#2e10f4',
+  backgroundColor: '#037ee9',
   borderTopLeftRadius: 50,
   borderBottomLeftRadius: 50,
   justifyContent: 'center',
@@ -130,7 +130,7 @@ const $addCart: ViewStyle = {
 const $addRemove: ViewStyle = {
   flex: 1,
   height: 42,
-  backgroundColor: '#2e10f4',
+  backgroundColor: '#037ee9',
   borderTopRightRadius: 50,
   borderBottomRightRadius: 50,
   justifyContent: 'center',
