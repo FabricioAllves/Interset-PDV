@@ -1,19 +1,20 @@
-import { data } from "src/types/product";
 import { CardProduct } from "@components";
 import { FlatList, Text, TextStyle, View, ViewStyle } from "react-native";
 import useCartStore from "src/store/useCartStore";
+import { useListProduct } from "./useListProduct";
 
 export function ListProducts() {
   const { addProduct } = useCartStore()
+  const {productsData} = useListProduct()
 
   return (
     <>
       <View style={$header}>
-        <Text style={$label}>25/257 produto(s)</Text>
+        <Text style={$label}>{productsData.length} produto(s)</Text>
       </View>
 
       <FlatList
-        data={data}
+        data={productsData}
         renderItem={({ item }) => (
           <CardProduct dataItem={item} onPress={() => addProduct(item)} />
         )}
