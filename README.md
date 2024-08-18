@@ -1,50 +1,42 @@
-# Welcome to your Expo app 👋
+<h1 align="center">Interset - PDV</h1>
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Get started
 
-1. Install dependencies
+## Tomadas de  decisões
+Para esse projeto optei por utilizar uma arquitetura MVVM, pois oferece uma maneira clara e organizada de estruturar seu código, separando a logica  e regra de negocio da UI e facilitando a manutenção e a escalabilidade da aplicaçao.
 
-   ```bash
-   npm install
-   ```
 
-2. Start the app
+## Tecnologias, libs Utilizadas
 
-   ```bash
-    npx expo start
-   ```
+- React Native -> (Expo)
+- TypeScript
+- Axios
+- Zustand
+- React-hook-form
 
-In the output, you'll find options to open the app in a
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Instalação
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Clone o repositório para sua maquina, execute o comando:
 
 ```bash
-npm run reset-project
+git clone https://github.com/FabricioAllves/HomeHub.git
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Para instalar as dependências do projeto, execute o comando:
 
-## Learn more
+```bash
+yarn install
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+Para rodar o projeto, execute o comando:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+yarn start
+```
 
-## Join the community
 
-Join our community of developers creating universal apps.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+Desenvolvido por [Fabricio Henrique](https://www.linkedin.com/in/fabricio-26/)
