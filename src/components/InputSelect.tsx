@@ -3,30 +3,38 @@ import { ImageStyle, Text, TextStyle, View, ViewStyle } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import AntDesign from '@expo/vector-icons/AntDesign';
 
-type PropsSelect = {
-  description: string
+interface DropdownItem {
+  [key: string]: any;
 }
 
-export function InputSelect({description}: PropsSelect) {
-  const data = [
-    { label: 'Item 1', value: '1' },
-    { label: 'Item 2', value: '2' },
-    { label: 'Item 3', value: '3' },
-    { label: 'Item 4', value: '4' },
-    { label: 'Item 5', value: '5' },
-    { label: 'Item 6', value: '6' },
-    { label: 'Item 7', value: '7' },
-    { label: 'Item 8', value: '8' },
-  ];
+interface InputSelectProps<T> {
+  description: string;
+  data: Array<DropdownItem>;
+  value: T | null;
+  onChange: (value: T) => void;
+  onBlur: () => void;
+  labelField: string;
+  valueField: string;
+  errorMessage?: string;
+}
 
-  const [value, setValue] = useState<string | null>(null);
+export function InputSelect<T>({
+  description,
+  data,
+  value,
+  onChange,
+  onBlur,
+  labelField,
+  valueField,
+  errorMessage
+}: InputSelectProps<T>) {
   const [isFocus, setIsFocus] = useState(false);
 
-  return(
+  return (
     <View style={$container}>
-       <Text style={$label}>
-         {description}
-        </Text>
+      <Text style={$label}>
+        {description}
+      </Text>
       <Dropdown
         style={[$dropdown, isFocus && $dropdownFocus]}
         placeholderStyle={$placeholderStyle}
@@ -35,17 +43,20 @@ export function InputSelect({description}: PropsSelect) {
         iconStyle={$iconStyle}
         data={data}
         search
-        maxHeight={300}
-        labelField="label"
-        valueField="value"
-        placeholder={!isFocus ? 'Select item' : '...'}
+        containerStyle={{ height: '70%' }}
+        labelField={labelField}
+        valueField={valueField}
+        placeholder={''}
         searchPlaceholder="Search..."
-        value={value}
+        value={value as any} 
         mode='modal'
         onFocus={() => setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
+        onBlur={() => {
+          setIsFocus(false);
+          onBlur();
+        }}
         onChange={item => {
-          setValue(item.value);
+          onChange(item[valueField] as T);
           setIsFocus(false);
         }}
         renderLeftIcon={() => (
@@ -57,15 +68,15 @@ export function InputSelect({description}: PropsSelect) {
           />
         )}
       />
+      {errorMessage && <Text style={$error}>{errorMessage}</Text>}
     </View>
-  )
+  );
 }
 
-
-//.  Styles
+// Styles
 const $container: ViewStyle = {
   backgroundColor: 'white',
-  flex: 1
+  flex: 1,
 };
 
 const $dropdown: ViewStyle = {
@@ -97,7 +108,7 @@ const $inputSearchStyle: TextStyle = {
 const $label: TextStyle = {
   marginBottom: 10,
   fontSize: 18,
-  color: '#070707c5'
+  color: '#070707c5',
 };
 
 const $placeholderStyle: TextStyle = {
@@ -106,4 +117,9 @@ const $placeholderStyle: TextStyle = {
 
 const $selectedTextStyle: TextStyle = {
   fontSize: 16,
+};
+
+const $error: TextStyle = {
+  color: 'red',
+  marginTop: 5,
 };

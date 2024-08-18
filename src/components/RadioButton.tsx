@@ -12,6 +12,7 @@ interface RadioGroupProps {
   options: { label: string; value: string }[];
   onSelect: (value: string) => void;
   selectedValue: string;
+  errorMessage?: string;
 }
 
 const RadioButton = ({ label, value, checked, onPress }: RadioButtonProps) => {
@@ -25,8 +26,9 @@ const RadioButton = ({ label, value, checked, onPress }: RadioButtonProps) => {
   );
 };
 
-export const RadioGroup = ({ options, onSelect, selectedValue }: RadioGroupProps) => {
+export const RadioGroup = ({ options, onSelect, selectedValue, errorMessage }: RadioGroupProps) => {
   return (
+    <View>
     <View style={$containerRadioGroup}>
       {options.map(option => (
         <RadioButton
@@ -37,6 +39,8 @@ export const RadioGroup = ({ options, onSelect, selectedValue }: RadioGroupProps
           onPress={onSelect}
         />
       ))}
+    </View>
+       {errorMessage && <Text style={$error}>{errorMessage}</Text>}
     </View>
   );
 };
@@ -77,3 +81,8 @@ const $label: TextStyle = {
   fontSize: 16,
   color: '#070707c5'
 }
+
+const $error: TextStyle = {
+  color: 'red',
+  marginTop: 5,
+};
