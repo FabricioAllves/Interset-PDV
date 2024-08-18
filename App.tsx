@@ -1,12 +1,12 @@
 import React from 'react'
 
 import { SafeAreaView } from 'react-native';
-import { OrderService } from 'src/screens/OrderService';
+import { ListProducts } from 'src/screens/ListProducts';
 
 export default function App() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#00a6ff' }}>
-      <OrderService />
+      <ListProducts />
     </SafeAreaView>
   );
 }
